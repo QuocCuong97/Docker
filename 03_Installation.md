@@ -31,6 +31,10 @@
     ```
     $ docker -v
     ```
+    => Output :
+    ```
+    Docker version 19.03.12, build 48a66213fe
+    ```
 - **B8 :** Chạy thử image `Hello World` :
     ```
     $ sudo docker run hello-world
@@ -86,6 +90,10 @@
 - **B5 :** Kiểm tra phiên bản **Docker** được cài đặt :
     ```
     # docker -v
+    ```
+    => Output :
+    ```
+    Docker version 19.03.12, build 48a66213fe
     ```
 - **B6 :** Kiểm tra xem **Docker** đã được cài chưa bằng image `Hello World` :
     ```
