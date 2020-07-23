@@ -35,11 +35,11 @@
     <img src=https://i.imgur.com/A1WNQRz.png>
 
 ## **4) Các phiên bản của Docker**
-- Có hai phiên bản chính của Docker là Docker EE, và Docker CE.
-    - Docker EE (Docker Enterprise Edition) :
-        - Docker EE có 3 versions chính là Basic, Standard, Advanced. Bản Basic bao gồm Docker platform, hỗ trợ support và certification. Bản Standard và Advanced thêm các tính năng như container management (Docker Datacenter) và Docker Security Scanning.
-        - Docker EE được support bởi Alibaba, Canonical, HPE, IBM, Microsoft…
-        - Docker cũng cung cấp một certification để giúp các doanh nghiệp đảm bảo các sản phẩm của họ được hoạt động với Docker EE.
-    - Docker CE (Docker Community Edition)
-        - Docker CE, đúng như tên gọi, nó là một phiên bản Docker do cộng đồng support và phát triển, hoàn toàn miễn phí.
-        - Có hai phiên bản của Docker CE là Edge và Stable. Bản Edge sẽ được release hàng tháng với các tính năng mới nhất, còn Stable sẽ release theo quý.
+- Có hai phiên bản chính của **Docker** là **Docker EE**, và **Docker CE**.
+    - **Docker EE** (***Docker Enterprise Edition***) :
+        - **Docker EE** có 3 versions chính là Basic, Standard, Advanced. Bản Basic bao gồm Docker platform, hỗ trợ support và certification. Bản Standard và Advanced thêm các tính năng như container management (Docker Datacenter) và Docker Security Scanning.
+        - **Docker EE** được support bởi Alibaba, Canonical, HPE, IBM, Microsoft…
+        - **Docker** cũng cung cấp một certification để giúp các doanh nghiệp đảm bảo các sản phẩm của họ được hoạt động với **Docker EE**.
+    - **Docker CE** (***Docker Community Edition***)
+        - **Docker CE**, đúng như tên gọi, nó là một phiên bản Docker do cộng đồng support và phát triển, hoàn toàn miễn phí.
+        - Có hai phiên bản của **Docker CE** là ***Edge*** và ***Stable***. Bản ***Edge*** sẽ được release hàng tháng với các tính năng mới nhất, còn ***Stable*** sẽ release theo quý.

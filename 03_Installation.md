@@ -27,7 +27,11 @@
     ```
     $ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
     ```
-- **B7 :** Kiểm tra xem Docker đã được cài chưa bằng image `Hello World` :
+- **B7 :** Kiểm tra phiên bản **Docker** được cài đặt :
+    ```
+    $ docker -v
+    ```
+- **B8 :** Chạy thử image `Hello World` :
     ```
     $ sudo docker run hello-world
     ```
@@ -79,7 +83,11 @@
     ```
     # systemctl start docker
     ```
-- **B5 :** Kiểm tra xem Docker đã được cài chưa bằng image `Hello World` :
+- **B5 :** Kiểm tra phiên bản **Docker** được cài đặt :
+    ```
+    # docker -v
+    ```
+- **B6 :** Kiểm tra xem **Docker** đã được cài chưa bằng image `Hello World` :
     ```
     # docker run hello-world
     ```
