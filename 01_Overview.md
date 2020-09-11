@@ -4,6 +4,8 @@
 - **Docker** cũng là tên công ty gây dựng nên nó ( tên cũ là **dotCloud** ) . Trước đây công ty **dotCloud** chuyên cung cấp các dịch vụ điện toán đám mây . Hiện đã tập trung vào lĩnh vực container .
 - GitHub : https://github.com/docker
 - Trang chủ : https://www.docker.com/
+- Viết bằng ngôn ngữ **Go** 
+- 
 - Công nghệ container ngày càng phổ biến bởi:
     - Linh hoạt: Có thể đóng gói từ ứng dụng đơn giản đến phức tạp
     - Nhỏ gọn: Các container tận dụng, sử dụng chung tài nguyên; kernel của host. Có thể chạy ở mọi nơi, mọi nền tảng.
@@ -25,7 +27,7 @@
 - Hỗ trợ phát triển và quản lý ứng dụng nhanh: Đối với Dev, sử dụng docker giúp họ giảm thiểu thời gian setup môi trường, đóng gói được các môi trường giống nhau từ Dev - Staging - Production 
 - Mã nguồn mở: Cộng đồng support lớn, các tính năng mới được release liên tục.
 ### **2.2) Nhược điểm**
-- Docker base trên Linux 64bit và các tính năng cgroup, namespaces. Vì thế Linux 32bit hoặc môi trường Window không thể chạy được docker (đối với phiên bản CE).
+- Docker base trên Linux 64bit và các tính năng cgroup, namespaces. Vì thế Linux 32bit hoặc môi trường Window x86 không thể chạy được docker (đối với phiên bản CE).
 - Sử dụng container tức là bạn sử dụng chung kernel của hệ điều hành. Trong trường hợp bạn download image có sẵn và trong đó có một số công cụ có thể kiểm soát được kernel thì server của bạn có thể bị mất kiểm soát hoàn toàn.
 - Các tiến trình chạy container một khi bị stop thì sẽ mất hoàn toàn dữ liệu nếu không được mount hoặc backup. Điều này có thể sẽ gây ra một số bất tiện…
 ## **3) So sánh giữa VM và Container**

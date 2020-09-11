@@ -40,7 +40,7 @@
     $ sudo docker run hello-world
     ```
     => Output:
-    ```sh
+    ```
     cuongnq@ubuntu1804:~$ sudo docker run hello-world
     Unable to find image 'hello-world:latest' locally
     latest: Pulling from library/hello-world
