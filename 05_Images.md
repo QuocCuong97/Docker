@@ -18,10 +18,12 @@
         - `-q` : chỉ trả về list các **image ID**
 - Download **docker image** :
     ```
-    # docker run <image_name>
+    # docker run <options> <image_name>
     ```
     - Trong đó :
         - `<image_name>` : tên của image. Nếu không tồn tại trong local, **Docker** sẽ tìm kiếm và download nó từ **Docker Hub**
+    - **Options :**
+        - `-d` : chạy container ở chế độ nền
 - Xóa **docker image** :
     ```
     # docker rmi <image_ID>
