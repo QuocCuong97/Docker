@@ -58,4 +58,80 @@
     ```dockerfile
     ENV    MY_VAR   123
     ```
-    > Lệnh trên set biến môi trường `ENV` 
+    > Lệnh trên set biến môi trường `MY_VAR` có giá trị `123`
+#### **`RUN`** 
+- Lệnh `RUN` có thể thực thi các lệnh thực thi bên trong Docker image. Lệnh `RUN` sẽ được thực thi trong quá trình build image, vì vậy nó chỉ được thực hiện 1 lần. Lệnh `RUN` có thể được sử dụng để cài đặt các app trong Docker image, hoặc giải nén file, hoặc bất cứ command line nào cần thiết khác.
+- **VD :** 
+    ```dockerfile
+    RUN apt-get install some-needed-app
+    ```
+#### **`ARG`**
+- Lệnh `ARG` cho phép định nghĩa tham số có thể truyền vào Docker khi build Docker file.
+- **VD :**
+    ```dockerfile
+    ARG tcpPort
+    ```
+    - Khi chạy lệnh Docker để build Dockerfile chứa lệnh `ARG` trên sẽ như sau :
+        ```
+        docker build --build-arg tcpPort=8080 .
+        ```
+- Các tham số được định nghĩa bằng lệnh `ARG` có thể được sử dụng ở mọi nơi trong Dockerfile.
+- **VD :**
+    ```dockerfile
+    ARG tcpPort=8080
+    ARG useTls=true
+
+    CMD start-my-server.sh -port ${tcpPort} -tls ${useTls}
+    ```
+#### **`WORKDIR`**
+- Lệnh `WORKDIR` chỉ định thư mục làm việc bên trong Docker image. Nó sẽ ảnh hưởng tới tất cả các lệnh theo phía sau nó
+- **VD :**
+    ```dockerfile
+    WORKDIR    /java/jdk/bin
+    ```
+#### **`EXPOSE`**
+- Lệnh `EXPOSE` sẽ mở port mạng trên Docker container thông ra mạng bên ngoài. Ví dụ nếu Docker container chạy một webserver, chắc chắn cần mở port 80 để client có thể truy cập.
+- **VD :**
+    ```dockerfile
+    EXPOSE   8080
+    ```
+- Có thể chọn giao thức cho phép để giao tiếp với port. **VD :**
+    ```dockerfile
+    EXPOSE   8080/tcp 9999/udp
+    ```
+    > Nếu không khai báo giao thức, mặc định sẽ là `tcp`
+#### **`VOLUME`**
+- Lệnh `VOLUME` dùng để tạo thư mục bên trong Docker image mà có thể truy cập được từ bên ngoài Docker host. Nói cách khác, có thể tạo ra thư mục bên trong Docker image (vd `/data`) và mount nó vào thư mục `/container-data/container1` trên Docker host. Quá trình mount sẽ được thực hiện khi container khởi động
+- **VD :** 
+    ```dockerfile
+    VOLUME   /data
+    ```
+#### **`ENTRYPOINT`**
+- Lệnh `ENTRYPOINT` cung cấp entrypoint cho Docker container. Entrypoint là một app hoặc 1 lệnh có thể được thực hiện khi Docker container khởi động. Theo ngữ cảnh này thì `ENTRYPOINT` cũng giống như lệnh `CMD`, điểm khác biệt là khi sử dụng `ENTRYPOINT`, Docker container sẽ bị tắt khi `ENTRYPOINT` kết thúc
+- **VD :**
+    ```dockerfile
+    ENTRYPOINT java -cp /apps/myapp/myapp.jar com.jenkov.myapp.Main
+    ```
+#### **`HEALTHCHECK`**
+- Lệnh `HEALTHCHECK` được sử dụng theo đúng nghĩa đen của nó, thực hiện lệnh kiểm tra container theo khoảng thời gian được chỉ định, để giám sát các app đang chạy trong container. Nếu lệnh trả về `0` khi thoát, container và các app đang `healthy`. Nếu trả về `1` chứng minh điều ngược lại.
+- **VD :**
+    ```dockerfile
+    HEALTHCHECK java -cp /apps/myapp/healthcheck.jar com.jenkov.myapp.HealthCheck https://localhost/healthcheck
+    ```
+- Mặc định, Docker sẽ thực hiện lệnh `HEALTHCHECK` mỗi `30s`, tuy nhiên có thể tùy chỉnh bằng tham số `--interval` :
+    ```dockerfile
+    HEALTHCHECK --interval=60s java -cp /apps/myapp/healthcheck.jar com.jenkov.myapp.HealthCheck https://localhost/healthcheck
+    ```
+- Mặc định, Docker sẽ thực hiện lệnh ngay khi Docker container chạy. Tuy nhiên, đôi khi một app khởi động cần một khoảng thời gian, vì vậy sẽ là không hợp lý khi check. Có thể set khoảng thời gian bắt đầu (start period) thực hiện lệnh `HEALTHCHECK` bằng tham số `--start-period` :
+    ```dockerfile
+    HEALTHCHECK --start-period=300s java -cp /apps/myapp/healthcheck.jar com.jenkov.myapp.HealthCheck https://localhost/healthcheck
+    ```
+- Có thể set timeout cho `HEALTHCHECK`. Nếu lệnh mất quá nhiều thời gian để thực hiện, Docker sẽ coi như lệnh bị timeout. Có thể set timeout bằng tham số `--timeout` :
+    ```dockerfile
+    HEALTHCHECK --timeout=5s java -cp /apps/myapp/healthcheck.jar com.jenkov.myapp.HealthCheck https://localhost/healthcheck
+    ```
+    > Nếu xảy ra timeout, Docker container cũng bị tính là unhealthy
+- Nếu `HEALTHCHECK` thất bại, trả về `1`, hoặc timeout, Docker sẽ thử chạy lại `HEALTHCHECK` thêm 3 lần. Nếu vẫn thất bại, container mới bị unhealthy. Có thể tùy chỉnh số lần thử lại này bằng tham số `--retries` :
+    ```dockerfile
+    HEALTHCHECK --retries=5 java -cp /apps/myapp/healthcheck.jar com.jenkov.myapp.HealthCheck https://localhost/healthcheck
+    ```
