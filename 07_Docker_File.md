@@ -9,13 +9,13 @@
     ```dockerfile
     MAINTAINER   Joe Blocks <joe@blocks.com>
     ```
-#### **FROM**
+#### **`FROM`**
 - Lệnh `FROM` chỉ định base image cho Docker image .
 - **VD :** Nếu muốn tạo image dựa trên một image Linux cơ bản, sử dụng như sau :
     ```dockerfile
     FROM ubuntu:latest
     ```
-#### **CMD**
+#### **`CMD`**
 - Lệnh `CMD` chỉ định lệnh sẽ thực thi khi Docker container khởi động dựa trên Docker image built từ Dockerfile. 
 - **VD1 :**
     ```dockerfile
@@ -26,7 +26,7 @@
     ```dockerfile
     CMD java -cp /myapp/myapp.jar com.jenkov.myapp.MainClass arg1 arg2 arg3
     ```
-#### **COPY**
+#### **`COPY`**
 - Lệnh `COPY` được sử dụng để copy 1 hoặc nhiều file từ Docker host (máy build Docker image từ Dockerfile) vào Docker image. Lệnh `COPY` có thể copy cả file và thư mục từ Docker host sang Docker image.
 - **VD1 :**
     ```dockerfile
@@ -38,7 +38,7 @@
     COPY    /myapp/config/prod/conf1.cfg   /myapp/config/prod/conf2.cfg   /myapp/config/
     ```
     > Lệnh trên giúp copy file `/myapp/config/prod/conf1.cfg` và `/myapp/config/prod/conf2.cfg` trên Docker host sang thư mục `/myapp/config` trên Docker image 
-#### *`ADD`**
+#### **`ADD`**
 - Lệnh `ADD` hoạt động tương tự như lệnh `COPY`, chỉ có một vài khác biệt nhỏ sau :
     - Lệnh `ADD` có thể copy và giải nén file TAR từ Docker host vào Docker images
     - Lệnh `ADD` có thể download file thông qua HTTP và copy chúng vào Docker image
