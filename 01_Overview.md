@@ -5,7 +5,7 @@
 - GitHub : https://github.com/docker
 - Trang chủ : https://www.docker.com/
 - Viết bằng ngôn ngữ **Go** 
-- 
+- Phiên bản ổn định mới nhất: `20.10.7`
 - Công nghệ container ngày càng phổ biến bởi:
     - Linh hoạt: Có thể đóng gói từ ứng dụng đơn giản đến phức tạp
     - Nhỏ gọn: Các container tận dụng, sử dụng chung tài nguyên; kernel của host. Có thể chạy ở mọi nơi, mọi nền tảng.
