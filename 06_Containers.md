@@ -131,5 +131,7 @@
     # docker kill dcf0665b448a
     ```
     <img src=https://i.imgur.com/35pHypa.png>
-## **3) Container Lifecycle**
-<p align=center><img src=https://i.imgur.com/MSfLxAs.jpg width=70%></p>
+
+## **3) Truy cập container's shell**
+
+https://www.tutorialspoint.com/docker/docker_containers_and_shells.htm

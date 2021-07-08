@@ -35,15 +35,19 @@
     - **Container** cô lập tài nguyên với host và các **container** khác.
 
         <img src=https://i.imgur.com/akXmmBU.png>
-    ## **3) Một số khái niệm mở rộng**
-    ### **3.1) Docker Network**
-    - **Docker Network** cho phép kết nối nhiều **container** lại với nhau, các **container** có thể nằm trên cùng 1 host hoặc nhiều host khác nhau .
-    ### **3.2) Docker Compose**
-    - **Docker Compose** là một công cụ giúp bạn dễ dàng hơn trong việc chạy ứng dụng trên nhiều **container**.
-    - **Docker Compose** cho phép bạn di chuyển các command vào bên trong file `docker-compose.yml` cho việc sử dụng lại. **Docker Compose** command line interface (CLI) giúp chúng ta dễ tương tác hơn với ứng nhiều container. 
-    - **Docker Compose** là miễn phí.
-    ### **3.3) Docker Swarm**
-    - Là một **orchestrate container**.
-    ### **3.4) Kubernetes** <img src=https://i.imgur.com/scvTGbw.png width=30% align=right>
-    - **Kubernetes** tự động hóa việc triển khai, Scaling, và quản lý các ứng dụng chạy bằng **container**. 
-    - **K8s** áp đảo hoàn toàn trong số các công cụ container orchestration. Thay vì sử dụng **Docker Swarm**, nên sử dụng **K8s** để scale up project của bạn với hàng chục, hàng trăm container.
+## **3) Một số khái niệm mở rộng**
+### **3.1) Docker Network**
+- **Docker Network** cho phép kết nối nhiều **container** lại với nhau, các **container** có thể nằm trên cùng 1 host hoặc nhiều host khác nhau .
+### **3.2) Docker Compose**
+- **Docker Compose** là một công cụ giúp bạn dễ dàng hơn trong việc chạy ứng dụng trên nhiều **container**.
+- **Docker Compose** cho phép bạn di chuyển các command vào bên trong file `docker-compose.yml` cho việc sử dụng lại. **Docker Compose** command line interface (CLI) giúp chúng ta dễ tương tác hơn với ứng nhiều container. 
+- **Docker Compose** là miễn phí.
+### **3.3) Docker Swarm**
+- Là một **orchestrate container**.
+### **3.4) Kubernetes** <img src=https://i.imgur.com/scvTGbw.png width=30% align=right>
+- **Kubernetes** tự động hóa việc triển khai, Scaling, và quản lý các ứng dụng chạy bằng **container**. 
+- **K8s** áp đảo hoàn toàn trong số các công cụ container orchestration. Thay vì sử dụng **Docker Swarm**, nên sử dụng **K8s** để scale up project của bạn với hàng chục, hàng trăm container.
+## **4) Các trạng thái, sự chuyển giao trạng thái của container trong Docker (lifecycle)**
+- Hình ảnh dưới đây mô tả cho một vòng đời của **container** trong **Docker** cùng với các trạng thái hoạt động:
+
+    <p align=center><img src=https://i.imgur.com/IaMgcBf.png></p>

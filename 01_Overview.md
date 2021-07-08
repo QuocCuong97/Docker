@@ -6,37 +6,8 @@
 - Trang chủ : https://www.docker.com/
 - Viết bằng ngôn ngữ **Go** 
 - Phiên bản ổn định mới nhất: `20.10.7`
-- Công nghệ container ngày càng phổ biến bởi:
-    - Linh hoạt: Có thể đóng gói từ ứng dụng đơn giản đến phức tạp
-    - Nhỏ gọn: Các container tận dụng, sử dụng chung tài nguyên; kernel của host. Có thể chạy ở mọi nơi, mọi nền tảng.
-    - Khả năng thay đổi linh hoạt: Cập nhật và nâng cấp nhanh chóng.
-    - Khả năng mở rộng: Dễ dàng tăng và phân tán tự động các container
-    - Phân tầng dịch vụ: Mỗi dịch vụ khi deploy sẽ được phân tầng, nằm trên các dịch vụ đang có sẵn. Như vậy sẽ không làm ảnh hưởng tới dịch vụ đang chạy.
-- Một số hiểu lầm :
-    - **Docker** không phải công cụ quản lý thiết lập hay thiết lập tự động ( **Puppet**, **Chef**,...)
-    - **Docker** không phải giải pháp ảo hóa phần cứng ( **VMware**, **KVM**,...)
-    - **Docker** không phải một nền tảng điện toán đám mây ( **OpenStack**, **CloudStack**,...)
-    - **Docker** không phải là một development framework ( **Capistrano**, **Fabric**,...)
-    - **Docker** không phải một công cụ quản lý workload ( **Mesos**, **Fleet**,...)
-    - **Docker** không phải là một môi trường phát triển ( **Vagrant**,...
-## **2) Ưu/nhược điểm của Docker**
-### **2.1) Ưu điểm**
-- Sử dụng ít tài nguyên: Thay vì phải ảo hóa toàn bộ hệ điều hành thì chỉ cần build và chạy các container độc lập sử dụng chung kernel duy nhất.
-- Tính đóng gói và di động: Tất cả các gói dependencies cần thiết đều được đóng gói vừa đủ trong container. Và sau đó có thể mang đi triển khai trên các server khác.
-- Cô lập tài nguyên: server bố không biết ở trong container chạy gì và container cũng không cần biết bố nó là CentOs hay Ubuntu . Các container độc lập với nhau và có thể giao tiếp với nhau bằng một interface
-- Hỗ trợ phát triển và quản lý ứng dụng nhanh: Đối với Dev, sử dụng docker giúp họ giảm thiểu thời gian setup môi trường, đóng gói được các môi trường giống nhau từ Dev - Staging - Production 
-- Mã nguồn mở: Cộng đồng support lớn, các tính năng mới được release liên tục.
-### **2.2) Nhược điểm**
-- Docker base trên Linux 64bit và các tính năng cgroup, namespaces. Vì thế Linux 32bit hoặc môi trường Window x86 không thể chạy được docker (đối với phiên bản CE).
-- Sử dụng container tức là bạn sử dụng chung kernel của hệ điều hành. Trong trường hợp bạn download image có sẵn và trong đó có một số công cụ có thể kiểm soát được kernel thì server của bạn có thể bị mất kiểm soát hoàn toàn.
-- Các tiến trình chạy container một khi bị stop thì sẽ mất hoàn toàn dữ liệu nếu không được mount hoặc backup. Điều này có thể sẽ gây ra một số bất tiện…
-## **3) So sánh giữa VM và Container**
-- Container chạy trực tiếp trên môi trường máy chủ như một tiến trình và chia sẻ phần kernel bên dưới dùng chung với máy chủ chứa nó .
-- VM tạo ra một môi trường giả lập hoàn toàn tách biệt như 1 máy hoàn chỉnh thông qua việc phân bổ tài nguyên của máy chủ, do đó sẽ tốn tài nguyên nhiều hơn cho hệ điều hành của máy ảo
-
-    <img src=https://i.imgur.com/A1WNQRz.png>
-
-## **4) Các phiên bản của Docker**
+- **Docker** giải quyết vấn đề khi mà các doanh nghiệp ngày nay đang chịu áp lực phải chuyển đổi kỹ thuật số nhưng bị hạn chế bởi các ứng dụng và cơ sở hạ tầng hiện tại đồng thời hợp lý hóa danh mục cloud, trung tâm dữ liệu và kiến trúc ứng dụng ngày càng đa dạng.
+## **2) Các phiên bản của Docker**
 - Có hai phiên bản chính của **Docker** là **Docker EE**, và **Docker CE**.
     - **Docker EE** (***Docker Enterprise Edition***) :
         - **Docker EE** có 3 versions chính là Basic, Standard, Advanced. Bản Basic bao gồm Docker platform, hỗ trợ support và certification. Bản Standard và Advanced thêm các tính năng như container management (Docker Datacenter) và Docker Security Scanning.
@@ -45,3 +16,44 @@
     - **Docker CE** (***Docker Community Edition***)
         - **Docker CE**, đúng như tên gọi, nó là một phiên bản Docker do cộng đồng support và phát triển, hoàn toàn miễn phí.
         - Có hai phiên bản của **Docker CE** là ***Edge*** và ***Stable***. Bản ***Edge*** sẽ được release hàng tháng với các tính năng mới nhất, còn ***Stable*** sẽ release theo quý.
+## **3) Chức năng, vai trò của Docker**
+- Cho phép phát triển, di chuyển và chạy các ứng dụng dựa vào công nghệ ảo hóa container trong Linux.
+- Tự động triển khai các ứng dụng bên trong các container bằng cách cung cấp thêm một lớp trừu tượng và tự động hóa việc ảo hóa "mức hệ điều hành".
+- **Docker** có thể sử dụng được trên cả 3 hệ điều hành phổ biến: Windows, Linux và Mac OS.
+- Lợi ích của **docker** bao gồm:
+    - Nhanh trong việc triển khai, di chuyển, khởi động container
+    - Bảo mật
+    - Lightweight (tiết kiệm disk & CPU)
+    - Mã nguồn mở
+    - Hỗ trợ APIs để giao tiếp với container
+    - Phù hợp trong môi trường làm việc đòi hòi phải liên tục tích hợp và triển khai các dịch vụ, phát triển cục bộ, các ứng dụng multi-tier.
+## **4) Các khái niệm cần biết khi sử dụng docker**
+### **4.1) Image**
+- **Image** trong **Docker** hay còn gọi là ***Mirror***. Là một template có sẵn (hoặc có thể tự tạo) với các chỉ dẫn dùng để tạo ra các container.
+- Được xây dựng từ một loạt các layers. Mỗi layer là một kết quả đại diện cho một lệnh trong **Dockerfile**.
+- Lưu trữ dưới dạng read-only template.
+### **4.2) Registry**
+- **Docker Registry** là nơi lưu trữ các image với hai chế độ là private và public.
+- Là nơi cho phép chia sẻ các image template để sử dụng trong quá trình làm việc với **Docker**.
+### **4.3) Volume**
+- **Volume** trong **Docker** là nơi dùng để chia sẻ dữ liệu cho các container.
+- Có thể thực hiện sử dụng **Volume** đối với 2 trường hợp:
+    - Chia sẻ giữa container với container.
+    - Chia sẻ giữa container và host.
+### **4.4) Container**
+- **Docker Container** là một thể hiện của **Docker Image** với những thao tác cơ bản để sử dụng qua CLI như `start`, `stop`, `restart` hay `delete`, ...
+- **Container Image** là một gói phần mềm thực thi lightweight, độc lập và có thể thực thi được bao gồm mọi thứ cần thiết để chạy được nó: code, runtime, system tools, system libraries, settings. Các ứng dụng có sẵn cho cả Linux và Windows, các container sẽ luôn chạy ổn định bất kể môi trường.
+
+    <p align=center><img src=https://i.imgur.com/LLnvMc9.png width=60%></p>
+
+- **Containers** và **virtual machines** có sự cách ly và phân bổ tài nguyên tương tự, nhưng có chức năng khác vì các container ảo hóa hệ điều hành thay vì phần cứng. Các **container** có tính portable và hiệu quả hơn.
+
+    <p align=center><img src=https://i.imgur.com/fuOmIje.png width=60%></p>
+
+- **Container** là một sự trừu tượng hóa ở lớp ứng dụng và code phụ thuộc vào nhau. Nhiều **container** có thể chạy trên cùng một máy và chia sẻ kernel của hệ điều hành với các **container** khác, mỗi máy đều chạy như các quá trình bị cô lập trong không gian người dùng. Các **container** chiếm ít không gian hơn các máy ảo (**container image** thường có vài trăm thậm chí là vài `MB`), và start gần như ngay lập tức.
+- **Máy ảo (VM)** là một sự trừu tượng của phần cứng vật lý chuyển tiếp từ một máy chủ sang nhiều máy chủ. **Hypervisor** cho phép nhiều máy ảo chạy trên một máy duy nhất. Mỗi máy ảo bao gồm một bản sao đầy đủ của một hệ điều hành, một hoặc nhiều ứng dụng, các chương trình và thư viện cần thiết - chiếm hàng chục `GB`. Máy ảo cũng có thể khởi động chậm.
+### **4.5) Dockerfile**
+- **Docker Image** có thể được tạo ra một cách tự động bằng việc đọc các chỉ dẫn trong **Dockerfile**.
+- **Dockerfile** là một dữ liệu văn bản bao gồm các câu lệnh mà người sử dụng có thể gọi qua các dòng lệnh để tạo ra một image.
+- Bằng việc sử dụng `docker build` người dùng có thể tạo một tự động xây dựng thực hiện một số lệnh dòng lệnh liên tiếp.
+## **5) Các thành phần, kiến trúc trong Docker**
