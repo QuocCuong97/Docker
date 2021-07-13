@@ -1,6 +1,9 @@
 # Docker Swarm
 ## **1) Giới thiệu**
 - **Swarm** trong **Docker** được sử dụng để tạo dựng cluster quản lý nhiều **Docker Engine**. Có thể sử dụng **Docker CLI** để tạo ra **swarm**, triển khai các dịch vụ ứng dụng trong **swarm** và quản lý các hành vi của **swarm**.
+
+    <p align=center><img src=https://i.imgur.com/yAt6MyK.png width=60%></p>
+
 - **Swarm** bao gồm nhiều Docker Host chạy trong ***swarm mode*** hoạt động ở hai vai trò:
     - `manager`: Có chức năng quản lý các host trong cluster, các dịch vụ, ...
     - `worker`: Có chức năng chạy services, ...
